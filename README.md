@@ -1,24 +1,67 @@
 # vue-multi-spa
 
-## Project setup
+## 1. Multi-Pages App Structure
+It has two apps `admin` and `main`
 ```
-npm install
+src/apps/admin
+   +- router
+   +- views
+   +- components
+   +- index.js (entry point)
+   +- AdminApp.vue
+
+src/apps/main
+   +- router
+   +- views
+   +- components
+   +- index.js (entry point)
+   +- MainApp.vue
+
+```
+, which have their own components, router, etc
+
+Plus, shared components
+
+```
+src
+  +- apps
+  |    +- admin
+  |    |    +- ...
+  |    +- main
+  |         +- ...
+  |
+  +- assets      SAHRED
+  +- components  SHARED
+  +- store(?)    might be SHARED, but not useful
+  +- views       SHARED
 ```
 
-### Compiles and hot-reloads for development
+## vue.config.js
+each `SPA` uses its own template html
 ```
-npm run serve
+module.exports = {
+  pages: {
+    main: {
+      entry: './src/apps/main/index.js',
+      template: 'public/main.html',
+      filename: 'index.html',
+      title: 'HOME',
+    },
+    admin: {
+      entry: './src/apps/admin/index.js',
+      template: 'public/admin.html',
+      filename: 'admin/index.html',
+      title: 'ADMIN',
+    },
+  },
+  ...
+}
 ```
+* `main` app uses template `public/main.html`
+* `main` app is mapped to `index.html`
+* `admin` app uses template `public/admin.html`
+* `admin` app is mapped to `admin/index.html`
 
-### Compiles and minifies for production
-```
-npm run build
-```
+When connecting `http://localhost`, `dist/index.html` is fetched.
 
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+When connecting `http://locahost/admin`, `dist/admin/index.html` is fetched.
