@@ -21,10 +21,15 @@ const routes = [
   },
 ];
 
+console.log('MA-C-[BASE URL] ', process.env.BASE_URL);
 const router = new VueRouter({
   mode: 'history',
   base: process.env.BASE_URL,
   routes,
 });
+
+router.beforeEach((to, from,next) => {
+  console.log('MR - From.name, to.name |', from.name,'|', to.name,'|', from.path,'|', to.path, router.mode, router.options.base);
+})
 
 export default router;

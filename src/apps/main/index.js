@@ -5,6 +5,13 @@ import router from './router';
 
 Vue.config.productionTip = false;
 
+Vue.mixin({
+  created() {
+    console.log('[created]M ' + this.$options.name,)
+  },
+});
+
+
 new Vue({
   router,
   store,

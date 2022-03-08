@@ -1,12 +1,22 @@
 <template>
-  <div>
+  <div style="backgroundColor:Silver">
     <div>
-      <router-link to="/">HOME(router link)</router-link> |
-      <router-link to="/desc">Description(router link)</router-link> |
-      <a href="/admin">ADMIN(anchor)</a>
+      <h2>MainApp in ./MainApp.vue </h2>
+      <h3>Routerlink to / </h3>
+      <router-link to="/">
+         HOME(router link)
+      </router-link>
+
+      <h3>Routerlink to /desc </h3>
+      <router-link to="/desc">Description(router link)</router-link>
+
+      <h3>href to  /admin </h3>
+      <a href="/mpa/admin"> href to ADMIN(anchor)</a>
     </div>
+
     <h3>main page</h3>
-    <router-view/>
+    <router-view />
+
   </div>
 </template>
 

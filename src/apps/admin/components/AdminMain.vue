@@ -14,45 +14,8 @@
 export default {
   data() {
     return {
-      desc: `<template>
-  <div>
-    <div>
-      <router-link to="/">HOME(router link)</router-link> |
-      <router-link to="/desc">Description(router link)</router-link> |
-      <a href="/admin">ADMIN(anchor)</a>
-    </div>
-    <h3>main page</h3>
-    <router-view/>
-  </div>
-</template>`,
-      vue_config_js: `const path = require('path');
-
-function resolve(dir) {
-  return path.join(__dirname, dir);
-}
-module.exports = {
-  pages: {
-    index: {
-      entry: './src/apps/main/index.js',
-      template: 'public/main.html',
-      filename: 'index.html',
-      title: 'HOME',
-    },
-    admin: {
-      entry: './src/apps/admin/index.js',
-      template: 'public/admin.html',
-      filename: 'admin/index.html',
-      title: 'ADMIN',
-    },
-  },
-  chainWebpack: (config) => {
-    config.resolve.alias
-      .set('@', resolve('src'))
-      .set('@admin', resolve('src/apps/admin'))
-      .set('@main', resolve('src/apps/main'));
-  },
-};
-    `,
+      desc: 'Desc 1',
+      vue_config_js: `Desc 2 `,
     };
   },
 };

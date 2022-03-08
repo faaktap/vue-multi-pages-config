@@ -17,14 +17,16 @@ const routes = [
     component: MenuView,
   },
 ];
-console.log('[BASE URL] ', process.env.BASE_URL);
+console.log('AD-C-[BASE URL] ', process.env.BASE_URL);
 const router = new VueRouter({
   mode: 'history',
+  base: process.env.BASE_URL,
   routes,
 });
 
 router.beforeEach((to, from, next) => {
   console.log(from, '->', to);
+  console.log('AD - From.name, to.name |', from.name,'|', to.name,'|', from.path,'|', to.path, router.mode, router.options.base);
   next();
 });
 export default router;
